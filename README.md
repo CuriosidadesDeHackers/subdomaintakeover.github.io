@@ -1,4 +1,4 @@
-# 🌐 Subdominio Takeover PoC
+# 🌐 Subdomain Takeover PoC
 
 ¡Bienvenido al repositorio de Prueba de Concepto (PoC) para la obtención del subdominio `subdomaintakeover.github.io`! 🚀
 

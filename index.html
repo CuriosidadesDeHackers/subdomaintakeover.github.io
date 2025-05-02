@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoC of Subdomain Takeover</title>
+    <title>PoC of Subdomain Takeover by Curiosidades De Hackers</title>
+    <link rel="icon" href="https://curiosidadesdehackers.com/wp-content/uploads/2024/05/2023-07-07_18-07-removebg-preview-1-244x300.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <meta property="og:title" content="PoC of Subdomain Takeover by Curiosidades De Hackers">
+    <meta property="og:description" content="PoC of Subdomain Takeover by Curiosidades De Hackers">
+    <meta property="og:image" content="https://curiosidadesdehackers.com/wp-content/uploads/2025/04/2023-07-07_18-07-278x300.png">
+    <meta property="og:url" content="https://curiosidadesdehackers.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PoC of Subdomain Takeover by Curiosidades De Hackers">
+    <meta name="twitter:description" content="PoC of Subdomain Takeover by Curiosidades De Hackers">
+    <meta name="twitter:image" content="https://curiosidadesdehackers.com/wp-content/uploads/2025/04/2023-07-07_18-07-278x300.png">
     <style>
         body {
             display: flex;
@@ -41,6 +52,27 @@
         a:hover {
             text-decoration: underline;
         }
+        .footer {
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+        }
+        .footer a {
+            color: #007BFF;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .kofi-button {
+            position: fixed;
+            bottom: 20px; /* Adjust this distance as needed */
+            left: 20px;
+        }
         @media (min-width: 768px) {
             h1 {
                 font-size: 4em;
@@ -49,11 +81,123 @@
                 font-size: 1.5em;
             }
         }
+        /* Improved styles for social media */
+        #social-media {
+            text-align: center;
+            margin: 30px 0 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #social-media h3 {
+            margin-bottom: 15px;
+            color: #000000;
+            font-size: clamp(16px, 3vw, 22px);
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0 10px;
+            max-width: 100%;
+        }
+
+        .social-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        /* Responsive sizes for social buttons */
+        @media (min-width: 480px) {
+            .social-buttons a {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .social-buttons a {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+            }
+        }
+
+        /* Specific colors for each social network */
+        .social-buttons a.fa-globe { background-color: #4CAF50; }
+        .social-buttons a.fa-youtube { background-color: #FF0000; }
+        .social-buttons a.fa-telegram { background-color: #0088cc; }
+        .social-buttons a.fa-x-twitter { background-color: #000000; }
+        .social-buttons a.fa-linkedin { background-color: #0077b5; }
+        .social-buttons a.fa-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        .social-buttons a.fa-github { background-color: #333; }
+        .social-buttons a.fa-tiktok { background-color: #000; }
+
+        /* Hover effect */
+        .social-buttons a:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Adjustments for very small screens */
+        @media (max-width: 360px) {
+            .social-buttons {
+                gap: 8px;
+            }
+            .social-buttons a {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>PoC de Subdomain Takeover por Curiosidades De Hackers 🌐</h1>
-    <img src="https://curiosidadesdehackers.com/wp-content/uploads/2025/05/gato-besando-a-la-camara.gif" alt="Descripción del GIF">
-    <p>Te explico en el siguiente artículo la explicación junto a la prueba de concepto del subdomain takeover. 👉 <a href="https://curiosidadesdehackers.com/robo-de-subdominiossubdomain-takeover-explicacion-y-poc/">Leer más</a></p>
+    <h1>Subdomain Takeover PoC by Curiosidades De Hackers 🌐</h1>
+    <img src="https://curiosidadesdehackers.com/wp-content/uploads/2025/05/gato-besando-a-la-camara.gif" alt="Description of the GIF">
+    <p>I explain in the following article the explanation along with the proof of concept of the subdomain takeover. 👉 <a href="https://curiosidadesdehackers.com/robo-de-subdominiossubdomain-takeover-explicacion-y-poc/">Read more</a></p>
+
+    <footer>
+        <div id="social-media">
+            <h3>My social networks:</h3>
+            <div class="social-buttons">
+                <a href="https://www.curiosidadesdehackers.com" target="_blank" class="fas fa-globe" title="Website"></a>
+                <a href="https://www.youtube.com/channel/UCyFq3OKciq3VMNpTmzV1XTA" target="_blank" class="fab fa-youtube" title="YouTube"></a>
+                <a href="https://t.me/CuriosidadesDeHackers" target="_blank" class="fab fa-telegram" title="Telegram"></a>
+                <a href="https://twitter.com/HackersCuriosos" target="_blank" class="fab fa-x-twitter" title="X (Twitter)"></a>
+                <a href="https://es.linkedin.com/in/manuel-mart%C3%ADnez-curiosidades-de-hackers-55b245289" target="_blank" class="fab fa-linkedin" title="LinkedIn"></a>
+                <a href="https://www.instagram.com/curiosidadesdehackers/" target="_blank" class="fab fa-instagram" title="Instagram"></a>
+                <a href="https://github.com/CuriosidadesDeHackers" target="_blank" class="fab fa-github" title="GitHub"></a>
+                <a href="https://www.tiktok.com/@curiosidadesdehackers" target="_blank" class="fab fa-tiktok" title="TikTok"></a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 text-start">
+                    <p>© CuriosidadesDeHackers 2025.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Ko-fi button -->
+    <div class="kofi-button">
+        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+        <script type='text/javascript'>kofiwidget2.init('Support me?', '#009ee1', 'O4O3W3IIA');kofiwidget2.draw();</script>
+    </div>
 </body>
 </html>
